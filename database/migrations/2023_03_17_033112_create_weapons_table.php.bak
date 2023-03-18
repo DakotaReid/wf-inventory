@@ -1,0 +1,33 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Query\Expression;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+		//TODO Set up view instead
+		//	Or do I have a different table?
+		//	https://stackoverflow.com/questions/36287364/how-to-create-the-migrations-for-database-views-using-php-artisan-in-laravel
+		//https://laravel.com/docs/10.x/migrations#column-modifiers
+//        Schema::create('weapons', function (Blueprint $table) {
+//            $table->string('weapon_id')->primary();
+//			//$table->string('name')->virtualAs(new Expression('JSON_VALUE(data, \'$.name\')'));
+//			$table->json('data');
+//        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('weapons');
+    }
+};
