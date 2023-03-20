@@ -31,7 +31,7 @@ jobs:
       with:
         push: true
         tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_5e807005347049c59d0192577774cf0a }}/wf-inventory:${{ github.sha }}
-        file: ./Dockerfile
+        file: ./docker/8.2/Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
