@@ -1,6 +1,6 @@
 version: '3'
 services:
-    laravel.test:
+    web-app:
         build:
             context: .
             dockerfile: Dockerfile
@@ -18,7 +18,7 @@ services:
             XDEBUG_MODE: '${SAIL_XDEBUG_MODE:-off}'
             XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
         volumes:
-            - '${WEBAPP_STORAGE_HOME}:/var/www/html'
+            - '${WEBAPP_STORAGE_HOME}${WEBAPP_STORAGE_PATH}:/var/www/html'
         networks:
             - sail
         depends_on:
@@ -51,5 +51,16 @@ networks:
     sail:
         driver: bridge
 volumes:
+#    www-root:
+#        driver: local
+#        name: "www-root"
+#    www-root:
+#        data:
+#            name: "TEST"
+#        driver: local
+#    '${WEBAPP_STORAGE_HOME}':
+#        data:
+#            name: "tets"
+#        driver: local
     sail-mysql:
         driver: local
