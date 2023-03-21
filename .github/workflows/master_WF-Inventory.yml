@@ -47,5 +47,6 @@ jobs:
       with:
         app-name: 'WF-Inventory'
         slot-name: 'production'
+        startup-command: 'mkdir -p /var/www/html && cp /site/wwwroot/.env /var/www/html'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_d707afeb212f4275aa82d7c542ae49af }}
         images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_5e807005347049c59d0192577774cf0a }}/wf-inventory:${{ github.sha }}'
