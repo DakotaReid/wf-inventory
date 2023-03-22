@@ -18,8 +18,7 @@ services:
             XDEBUG_MODE: '${SAIL_XDEBUG_MODE:-off}'
             XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
         volumes:
-#            - '${WEBAPP_STORAGE_HOME}${WEBAPP_STORAGE_PATH}:/var/www/html'
-            - '/home/site/wwwroot:/var/www/html'
+            - '${WEBAPP_STORAGE_HOME}${WEBAPP_STORAGE_PATH}:/var/www/html'
         networks:
             - sail
         depends_on:
