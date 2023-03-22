@@ -17,11 +17,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: project
-        path: /home/site/wwwroot
+#    - name: Artifact
+#      uses: actions/upload-artifact@v3
+#      with:
+#        name: project
+#        path: ${{ GITHUB_ACTION_PATH }}
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
@@ -48,18 +48,19 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-#    - name: Checkout
-#      uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v3
+      path: /home/site/wwwroot
 
-    - name: Artifact
-      uses: actions/download-artifact@v3
-      with:
-        name: project
-        path: /home/site/wwwroot
+#    - name: Artifact
+#      uses: actions/download-artifact@v3
+#      with:
+#        name: project
+#        path: /home/site/wwwroot
 
     - name: Display structure of downloaded files
       run: ls -R
-      working-directory: path/to/artifacts
+      working-directory: /home/site/wwwroot
 
     - name: Deploy to Azure Web App
       id: deploy-to-webapp
