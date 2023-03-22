@@ -24,11 +24,12 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-#    - name: Artifact
-#      uses: actions/upload-artifact@v3
-#      with:
-#        name: project
+    - name: Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: project
 #        path: ${{ GITHUB_ACTION_PATH }}
+        path: .
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
@@ -58,10 +59,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-#    - name: Artifact
-#      uses: actions/download-artifact@v3
-#      with:
-#        name: project
+    - name: Artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: project
 #        path: /home/site/wwwroot
 
     - name: Display structure of downloaded files
