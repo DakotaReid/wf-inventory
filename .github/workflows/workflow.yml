@@ -48,14 +48,16 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-#    - name: Checkout
-#      uses: actions/checkout@v3
+    - name: Display structure current dir
+      run: |
+        pwd
+        ls -la
 
     - name: Artifact
       uses: actions/download-artifact@v3
       with:
         name: project
-        path: /home/site/wwwroot
+        path: site/wwwroot
 
     - name: Display structure of downloaded files
       run: ls -R
