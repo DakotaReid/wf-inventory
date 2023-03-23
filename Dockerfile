@@ -7,6 +7,7 @@ ARG NODE_VERSION=18
 ARG POSTGRES_VERSION=14
 
 WORKDIR /var/www/html
+#WORKDIR /home/site/wwwroot
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV TZ=UTC
@@ -47,6 +48,8 @@ RUN setcap "cap_net_bind_service=+ep" /usr/bin/php8.2
 
 RUN groupadd --force -g $WWWGROUP sail
 RUN useradd -ms /bin/bash --no-user-group -g $WWWGROUP -u 1337 sail
+
+RUN git clone https://github.com/DakotaReid/wf-inventory.git
 
 COPY start-container /usr/local/bin/start-container
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
